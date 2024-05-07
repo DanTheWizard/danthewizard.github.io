@@ -1,4 +1,5 @@
 @import '/src/css/error.css';
+@import '/src/css/loader.css';
 @import '/src/css/body-load-text.css';
 @import '/src/css/alert.css';
 @import '/src/css/dropdown.css';
@@ -13,27 +14,87 @@
 @import '/src/css/slider.css';
 
 
+/* If Browser is Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #2d0b3d;
+        background: #000000 url(/src/images/STREAM-Logo/Logo-black-blur.jpg) no-repeat center center fixed;
+    
+        /* Main Colors */
+        --color-primary: #651d8a;
+        --color-primary-transparent: #651d8a91;
+        --color-primary-light: rgb(173, 56, 231);
+        --color-primary-light-transparent: rgba(173, 56, 231, 0.5);
+        --color-primary-dark: #20082c;
+        --color-primary-dark-transparent: #20082cb1;
+        --color-secondary: #252c6a;
+        
+        /* Error and Success Colors */
+        --color-error: #cc333c;
+        --color-error-transparent: #ff000f99;
+        --color-success: #4bb544;
+        --color-success-transparent: #4bb544b5;
+    
+        /* White if needed to be changed to anything in the future */
+        --color-white: white;
+    
+        /* Body Color */
+        --color-footer: rgb(32, 8, 44);
+        --color-border: darkorchid;
+        --color-seperator: darkorchid;
+    
+        /* Scroll Bar Colors */
+        --scrollbar-default: #651d8a; 
+        --scrollbar-hover: #9630ee;
+        --scrollbar-background: #2c0238;
+    }
+}
+
+
+
+/* If Browser is Light  Mode */
+/* TO DO */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #2d0b3d;
+        background: #000000 url(/src/images/STREAM-Logo/Logo-black-blur.jpg) no-repeat center center fixed;
+
+        /* Main Colors */
+        --color-primary: #651d8a;
+        --color-primary-transparent: #651d8a91;
+        --color-primary-light: rgb(173, 56, 231);
+        --color-primary-light-transparent: rgba(173, 56, 231, 0.5);
+        --color-primary-dark: #20082c;
+        --color-primary-dark-transparent: #20082cb1;
+        --color-secondary: #252c6a;
+        
+        /* Error and Success Colors */
+        --color-error: #cc333c;
+        --color-error-transparent: #ff000f99;
+        --color-success: #4bb544;
+        --color-success-transparent: #4bb544b5;
+    
+        /* White if needed to be changed to anything in the future */
+        --color-white: white;
+    
+        /* Body Color */
+        --color-footer: rgb(32, 8, 44);
+        --color-border: darkorchid;
+        --color-seperator: darkorchid;
+    
+        /* Scroll Bar Colors */
+        --scrollbar-default: #651d8a; 
+        --scrollbar-hover: #9630ee;
+        --scrollbar-background: #2c0238;
+    }
+}
+
 
 body {
-    background-color: #2d0b3d;
-    --color-primary: #651d8a;
-    --color-primary-transparent: #651d8a91;
-    --color-primary-light: rgb(173, 56, 231);
-    --color-primary-light-transparent: rgba(173, 56, 231, 0.5);
-    --color-primary-dark: #20082c;
-    --color-primary-dark-transparent: #20082cb1;
-    --color-secondary: #252c6a;
-    --color-error: #cc333c;
-    --color-error-transparent: #ff000f99;
-    --color-success: #4bb544;
-    --color-success-transparent: #4bb544b5;
+    /* Other Styling Variables */
     --border-radius: 4px;
     --transparent: rgba(0, 0, 0, 0);
     --default-font-size: 18px;
-    --color-white: white;
-    /*
-    --transition: all 3eems ease;
-    */
 
     --transition: all ease .5s;
     --container-width-lg: 74%;
@@ -44,34 +105,18 @@ body {
     --card-border-radius-3: 0.8rem;
     --card-border-radius-4: 2rem;
     --card-border-radius-5: 5rem;
-    /*
 
-    */
 
     margin: 0;
-    /*Broken*/
-    /*height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;*/
     font-size: var(--default-font-size);
-    background: #000000 url(/src//images/STEAM/Logo-black-blur3.jpg) no-repeat center center fixed;
-    /*
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    */
-    background-size: contain; /*Usually was cover*/
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-    /*Center The Body Horizontally and Vertically*/
+    background-size: contain;
+    /* Center The Body Horizontally and Vertically */
     display: flex;
     align-items: center;
     justify-content: center;
-    /*Causes some small pages to have a scrollbar hat is only a few pixels
-    
-        min-height: 90vh;
 
-    */
+    /* Fix webpages not being full screen if contains little data */
+    min-height: 100vh;
 }
 
 
@@ -105,7 +150,7 @@ body {
 
 /*Header*/
 .logo__link {
-    color: rgb(173, 56, 231);
+    color: var(--color-primary-light);
     display: block;
     margin-bottom: 5px;
     text-decoration: none;
@@ -128,7 +173,7 @@ body {
 }
 
 .header__link {
-    color: rgb(173, 56, 231);
+    color: var(--color-primary-light);
     display: block;
     /*margin-bottom: 5px;*/
     text-decoration: none;
@@ -136,18 +181,21 @@ body {
 }
 
 .header__header {
-    height: 4rem;
+    /* height: 4rem; */
     vertical-align: middle;
+    height: fit-content;
 }
 
 .top__header__nav {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     gap: 1rem;
 }
 
 .top__header__nav > li {
     display: inline-block;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .header__logo {
@@ -162,7 +210,7 @@ body {
     padding-right: 1rem;
     white-space: nowrap;
     text-align: center;
-    line-height: 3.5rem;
+    /* line-height: 3.5rem; */
     /*display: flex;
     justify-content: center;
     align-items: center;*/
@@ -224,6 +272,8 @@ body {
     background: #a2000078;
 
 }
+
+
 
 
 .avatar {
@@ -326,9 +376,11 @@ h2 {
     max-width: 1000px;
     margin: auto;
     padding: 0 30px 10px 30px;
-    border: 1px darkorchid solid;
+    border: 1px var(--color-border) solid;
     border-radius: 0.5rem;
     background: var(--color-primary-dark-transparent);
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
 }
 
 .themed {
@@ -354,7 +406,7 @@ a:hover {
 }
 
 .top__header__nav a:hover {
-    /*font-size: 1.5rem;*/
+    /* font-size: 1.5rem; */
     transform: scale(1.1);
     text-decoration: none;
     color: white;
@@ -377,17 +429,17 @@ hr {
     border: none;
     height: 1px;
     margin: 25px;
-    background: darkorchid;
+    background: var(--color-seperator);
 }
 
 .hr-d {
-    border: 1px dashed darkorchid;
+    border: 1px dashed var(--color-seperator);
     background: transparent;
     height: unset;
 }
 
 footer {
-    background: rgb(32, 8, 44);
+    background: var(--color-footer);
     border-radius: 5px;
     padding: 0.1px;
     font-size: 1em;
@@ -499,14 +551,6 @@ li-break {
         padding: 0 30px 10px 30px;
     }
 
-    .logo__link {
-        font-size: 6vw;
-    }
-
-        .logo__link:hover {
-            font-size: 6.5vw;
-        }
-
     hr {
         margin: 5px;
     }
@@ -525,6 +569,37 @@ li-break {
         margin-right: auto;
         display: block;
 	float: unset;
+    }
+
+    /* Header with selections */
+
+    .logo__link {
+        font-size: 9vw;
+    }
+
+        .logo__link:hover {
+            font-size: 6.5vw;
+        }
+
+    .header__button {
+        text-decoration: none;
+        padding: 0.5rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: white;
+        border: none;
+        border-radius: var(--border-radius);
+        outline: none;
+        cursor: pointer;
+        background: var(--color-primary);
+        transition: all 0.5s;
+    }
+
+    .top__header__nav {
+        display: flex;
+        align-items: center;
+        gap: unset;
+        justify-content: center;
     }
     
 }
@@ -674,19 +749,6 @@ li-break {
 
 
 
-
-
-/*
-.grecaptcha-badge {
-    display: none !important;
-}*/
-
-.grecaptcha-badge {
-    width: 70px !important;
-    transition: all 0.3s ease !important;
-    right: 0.5rem !important;
-}
-
-.grecaptcha-badge:hover {
-    width: 256px !important;
+#resume-pdf {
+    border-radius: var(--card-border-radius-2);
 }
