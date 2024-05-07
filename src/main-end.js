@@ -1,4 +1,11 @@
-﻿getScript('/src/javascript/collapsible-load.js');
+﻿$("#header__desktop").load("/arch/header-desktop.html");
+$("#header__mobile").load("/arch/header-mobile.html");
+$("#my__footer").load("/arch/footer.html");
+
+
+
+
+getScript('/src/javascript/collapsible-load.js');
 
 
 getScript('/src/javascript/remove-unnecessary.js');
