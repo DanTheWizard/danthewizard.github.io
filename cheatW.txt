@@ -1,0 +1,175 @@
+Written Questions:
+
+
+UNITS 1+2
+
+Identify one of the SPECIFIC characteristics of living things that we discussed in class.
+^ Maintain Homeostasis
+
+Briefly explain why a person shivers when they are cold and sweats when they are hot.
+^ That is their body trying to keep the body warm by shivering when they are cold and keep their body cooler by sweating when hot (maintining homeostasis)
+^^ Regulate Body Temp
+^^ Maintain Homeostasis
+^^ Feedback Mechanism
+
+Place the following 6 levels of organization in living things in the correct order, from smallest to largest: tissues | organ systems | organelles | organs | cells | organism
+^ organelles > cells > tissues > organs > organ system > organism
+
+If the Archaea and Bacteria domains both consist of simple, single celled organisms, then why are they classified in completely different domains?
+^ They have different DNA's
+
+Briefly describe one difference between asexual and sexual reproduction.
+^ Asexual reproduction requires one organism (single copy of itslef) while sexual reprodution requires two differnt organisms (mix together to create a unique DNA)
+^^ one parent vs two gametes
+^^ genetically identical vs genetic variety
+
+Identify the process that occurs when orbiting rings of gas and dust left over from the formation of a star undergo collisions and clump together to form planets.
+^ Accretion
+
+What can potentially happen if a living thing fails to maintain homeostasis over a long period of time?
+^ The living thing can get sick, diseases, or die
+
+Describe what it means if one says that an organism is failing to maintain homeostasis.
+^ Its organism is not in a stable condition, and that could lead to the organism getting sick, diseases, or even death
+^^ Is sick
+^^ it is not maintaining internal balance
+
+Identify the molecule present in the cell wall of plants that helps to differentiate it from the cell walls of other organisms, such as bacteria and fungi.
+^ Cellulose
+
+How many "Earthlike" planets are estimated to be in the Milky Way galaxy based on calculations from data collected by NASA’s Kepler Telescope?
+^ 2 Billion
+
+Individual adaptation is a slow, individual response to a stimulus that requires time to enact, but can last considerably longer than a quick nerve response. Give an example of individiual adaptation to a stimulus in humans.
+^ White blood cells building up anit-bodies agianst infections/bacterias in the body (and storing information on how to defeat it for the future)
+^^ hormone responses, insulin response to glucose, immune response, antibody production, effects of sex hormones
+
+---
+
+Unit 2+3
+
+Identify the category of carnivores that feed off of dead animals left by others. Give an example of one such organism.  [Counts as 2 questions]
+^ scavengers; vultures, hyenas, coyotes, raccoons
+
+Non-functional structures left behind from important structures in our ancestors are called _________________ structures. Give a specific example of one such structure in a living thing. [Counts as 2 questions]
+^ vestigial; appendix in humans, leg bone remnants in some snakes, hind limb buds in dolphins and whales
+
+Identify the type of rock that can contain fossils due to how they are formed. Through what process or processes are these rocks formed?  [Counts as 2 questions]
+^ sedimentary; compaction or cementation
+
+Put the following levels of ecological organization in order from SMALLEST to LARGEST: biome, individual, ecosystem, community, biosphere, population
+^ Individual, Population, Community, Ecosystem, Biome, Biosphere
+
+Identify one NEGATIVE aspect 3D printing
+^ Ghost (untracable) weapons can be created with ease
+^^ printing weapons, weapons, loss of manufacturing jobs, copyright infringement, more expensive under certain circumstances
+
+Briefly explain why decomposers are crucial for ecosystems to remain sustainable.
+^ They decay on dead organisms, recycling their nutrient molecules back into the soil
+^^ they recycle nutrients, they return nutrient molecules to the soil, they make molecules from dead organisms available for plants to reuse
+
+Identify one NEGATIVE aspect of BCI (Brain-Computer Interfaces)
+^ The side effects BCI could have such as change in sleep quality, personality, and personhood.
+^^ infections from electrodes, not well developed enough yet, mind control, invasion of privacy, loss of personhood, government interrogation tactics
+
+An organism that can create organic food molecules from inorganic non-food molecules is called a(n)
+^ Producer (autotroph)
+
+Identify one POSITIVE aspect of 3D Printing
+^ Easy to print parts for testing or use (ex: car parts, aircraft parts) 
+^^ bioprinting, printing organs, printing from home, cheaper to produce under certain circumstances, prototyping, implants, prosthetics
+
+Identify one POSITIVE aspect of BCI (Brain-Computer Interfaces)
+^ Help with restoration of human functions that don't work well (ex: vision restoration, controlling electrical prostetics to walk/move hands)
+^^ controlling prosthetics, telepathic communication, neurogaming, restoring vision, restoring walking, restoring mobility
+
+Briefly explain the difference between a food chain and a food web. Which one is more stable?  [Counts as 2 questions]
+^ A food chain consist of a single chain of what organism feeds of from another organism. A Food web is a collection of interconnecting food chains, mapping out the options organisms have to feed on. The Food web is more stable, as it is made up of multiple food chains, meaning that if an organism is taken out, there are other organisms to feed on, unlike a single food chain, where if an organism is taken out, there is nothing to feed on for the predators (so they die out) and the preys start populating at a high number [unstable]
+^^ A food chain is only a single set of feeding relationships. A food web represents ALL the feeding relationships in an ecosystem. Food webs are more stable because they include multiple feeding pathways.
+
+---
+
+Unit 4+5
+
+Proteins are only used for energy as a last resort during starvation due to being far too valuable for making other structures in the body. Give an example of any structure, other than muscle, that proteins are essential for making in the body.
+^ Making blood cells
+^^ blood cells, enzymes, antibodies, receptors, hormones, neurotransmitters, connective tissue, clotting factors, part of bone
+
+Identify the 2 areas of the brain that are involved in understanding language and producing fluent speech. [Counts as 2 questions]
+^ Wernike's Area and Broca's Area
+
+Which hormone that we discussed in class is most directly responsible for making a person feel sated?
+^ Leptin
+
+Which part of the parietal lobe is responsible for the sense of touch in the body?
+^ Primary Somatosensory Cortex
+
+The ability to sense the position of your body parts in space without having to look at them (ex. looking at the ball when swinging a bat instead of having to look at your arms) is called 
+^ Proprioception
+
+The Primary Auditory Cortex processes the sense of
+^ Sound, hearing
+
+Identify the "master gland" of the brain that controls the endocrine system through the release of its hormones. Identify the part of the brain that controls it. (Counts as 2 questions)
+^ Pituitary gland, and the hypothalmus controls it
+
+Which hormone that we discussed in class is most directly responsible for making a person feel hungry?
+^ Ghrelin
+
+A pleasant feeling of fullness that decreases hunger is called
+^ Satiety
+
+---
+
+Unit 5+6
+
+Stem cells are special because they are capable of self-renewal. Briefly explain what "self-renewal" means.
+^ They can make copies of themselves infinitely
+^^ They can keep making copies of themselves while remaining undifferentiated
+
+Identify ONE specific negative physiological impact that the burying of toxic waste in Love Canal had on the residents who later moved into the area once it was developed.
+^ Around 56% of the born children had birth defects
+^^ birth defects, chromosomal abnormalities, mutations
+ 
+During combustion reactions, which element combines with carbon, sulfur, and nitrogen to release harmful oxides and dioxides into the environment?
+^ Oxygen
+
+Stem cells are special in that they have not yet differentiated into specialized cells. Explain what this means.
+^ The means that they have not formed into other cell types that are necessary for the human body
+^^ They have not yet turned into specific types of cells like heart, lung, liver, nerve, muscle, skin, etc.
+
+ Identify ONE specific type of organism that was directly affected by the Exxon Valdez oil spill.
+^ seabirds, sea otters, river otters, harbor seals, bald eagles, orcas, salmon, herring, humans
+
+Identify ONE specific benefit of using nuclear, when compared to coal power.
+^ It is cleaner (no air or water pollution)
+^^ no air pollution, no water pollution, sustainable energy, more economical, cleaner
+ 
+Alternate energy sources, such as solar, wind, and water power can help to decrease global warming and acid rain by decreasing the amount of air pollution from fossil fuels being burned. However, the use of these alternate energy sources is not as widespread as the use of coal. Give ONE reason why this is so.
+^ There is not enough of sun, wind, and water in different locations
+^^ expensive, not all locations have enough sun, wind, or water, destroy aquatic ecosystems, difficult to make the transition, not always available, cost
+
+Give a SPECIFIC example of a problematic imported species in the United States.
+^^ Gypsy moth, Asian Longhorned beetle, Japanese beetle, Brown marmorated stink bug, Lantern fly, Zebra mussel
+
+Identify the level of stem cell potency which includes stem cells that can naturally differentiate into all internal, but not external, cell types.
+^ Pluripotent
+
+Briefly explain what makes the use of embryonic stem cells so much more controversial than adult stem cells.
+^ Because it requires the destruction of the embryo, which some people take in as murder 
+
+Adult stem cells have a few advantages over embryonic stem cells. Identify one of those specific advantages.
+^ Embryos do not have to be destroyed (no murder)
+^^ no tissue rejection
+
+Briefly explain why imported species are of ecological concern. (Be specific. In other words, "bad for the environment" is not a good enough response.)
+^ Imported species can easily overpopulate and crowd out, eating and destroying crops or other species
+
+The use of embryonic stem cells is very controversial, but they have a distinct advantage over adult stem cells in terms of their ability to differentiate. What is this specific advantage related to differentiation?
+^ They can become any cell for any internal organ in the human body
+^^ They are pluripotent
+
+dentify ONE specific disadvantage of nuclear power.
+^ There is high thermal polution
+^^ thermal pollution, radioactive waste, toxic waste, meltdown
+
