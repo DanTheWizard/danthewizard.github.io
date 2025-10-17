@@ -1,0 +1,267 @@
+<!-- Not gonna lie, this was made with AI as a proof of concept, so you can ignore this -->
+
+<div class="container">
+    <div class="header">
+      <div class="school-name">Tottenville High School</div>
+      <div class="date-display" id="dateDisplay">—</div>
+    </div>
+
+    <div id="statusDisplay"></div>
+    <div class="clock" id="currentTime">—</div>
+</div>
+
+<style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+        --bg1:#3b1e6d; --bg2:#6a33cc;
+        --ink:#1e1f27; --muted:#4b4f63;
+        --edge:#ececf6; --accent:#4e2792; --accent2:#6a33cc;
+    }
+    body{
+        min-height:100vh; display:flex; align-items:center; justify-content:center;
+        background:linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 100%);
+        color:#fff; padding:20px; font:16px/1.5 "Segoe UI", Inter, Roboto, system-ui, Arial, sans-serif;
+    }
+    .container{width:100%; max-width:800px; text-align:center}
+    .header{margin-bottom:28px}
+    .school-name{font-size:2.4rem; font-weight:800; text-shadow:2px 2px 6px rgba(0,0,0,.35)}
+    .date-display{font-size:1.2rem; opacity:.95; margin-top:6px}
+
+    .status-card{
+        background:rgba(255,255,255,.96); color:var(--ink);
+        border-radius:16px; padding:28px 22px; border:1px solid var(--edge);
+        box-shadow:0 14px 40px rgba(0,0,0,.25); margin:0 auto 14px; text-align:center;
+    }
+    .status-label{font-weight:700; color:var(--accent); letter-spacing:.3px; font-size:1.1rem}
+    .period-name{font-size:3rem; font-weight:900; color:var(--accent); margin:10px 0 4px}
+    .time-display{font-size:3.0rem; font-weight:800; color:var(--accent2); margin:12px 0 12px}
+
+    /* Smooth single progress bar (bigger, always obvious) */
+    .smoothbar-wrap{margin:8px 0 10px; display:block}
+    .smoothbar-label{font-size:.95rem; color:var(--muted); margin-bottom:6px}
+    .smoothbar{
+        position:relative; height:20px; border-radius:999px; overflow:hidden;
+        background:#e7e9f6; border:1px solid #dfe2f1; min-width:240px;
+    }
+    .smooth-fill{
+        position:absolute; top:0; bottom:0; left:0; width:0%;
+        background:linear-gradient(90deg,var(--accent),var(--accent2));
+        will-change:width;
+    }
+
+    .period-times{display:flex; justify-content:space-between; color:#4a5568; margin-top:8px; font-size:1.1rem}
+    .next-period{
+        background:rgba(255,255,255,.9); color:#2d3748;
+        border-radius:12px; border:1px solid var(--edge);
+        padding:16px; font-size:1.1rem; margin-top:14px;
+    }
+    .next-period strong{color:var(--accent); font-weight:800}
+
+    .after-hours{padding:30px 12px}
+    .after-hours h2{color:#fff; font-size:2.4rem; margin-bottom:10px; text-shadow:2px 2px 6px rgba(0,0,0,.35)}
+    .after-hours p{font-size:1.2rem; max-width:620px; margin:0 auto; line-height:1.55}
+
+    .clock{font-size:1.1rem; margin-top:18px; opacity:.95}
+    @media (max-width:480px){
+        .status-card{padding:22px 14px}
+        .period-name{font-size:2rem}
+        .time-display{font-size:2.1rem}
+        .period-times{font-size:1rem}
+    }
+</style>
+
+<script>
+    /* ===== Config ===== */
+const TZ = 'America/New_York';
+const SCHEDULE = [
+  { period:'Period 1', start:'7:10 AM', end:'7:57 AM' },
+  { period:'Period 2', start:'8:00 AM', end:'8:47 AM' },
+  { period:'Period 3', start:'8:51 AM', end:'9:41 AM' },
+  { period:'Period 4', start:'9:45 AM', end:'10:32 AM' },
+  { period:'Period 5', start:'10:36 AM', end:'11:23 AM' },
+  { period:'Period 6', start:'11:27 AM', end:'12:14 PM' },
+  { period:'Period 7', start:'12:18 PM', end:'1:05 PM' },
+  { period:'Period 8', start:'1:09 PM', end:'1:56 PM' },
+  { period:'Period 9', start:'2:00 PM', end:'2:47 PM' }
+];
+
+/* ===== Utilities ===== */
+function nowTZ(){ 
+  return new Date(new Date().toLocaleString('en-US', { timeZone: TZ })); 
+}
+
+function timeStrToHM(str){
+  const [t, ap] = str.split(' '); let [h,m] = t.split(':').map(Number);
+  const pm = ap.toUpperCase()==='PM'; if(h===12) h = pm?12:0; else if(pm) h+=12;
+  return {h,m};
+}
+function dateAtHM(base, h, m){ const d=new Date(base); d.setHours(h,m,0,0); return d; }
+function fmtLeft(mins){
+  if(mins<=0) return '0:00';
+  const h=(mins/60)|0, m=mins%60;
+  return h? (m?`${h} hour${h!==1?'s':''} ${m} minute${m!==1?'s':''}`:`${h} hour${h!==1?'s':''}`) : `${m} minute${m!==1?'s':''}`;
+}
+
+/* ===== Status (with ms) ===== */
+function getStatus(){
+  const now = nowTZ();
+  const minsNow = now.getHours()*60 + now.getMinutes();
+  const {h:sh,m:sm} = timeStrToHM(SCHEDULE[0].start);
+  const {h:eh,m:em} = timeStrToHM(SCHEDULE[SCHEDULE.length-1].end);
+  const schoolStart = sh*60+sm, schoolEnd = eh*60+em;
+
+  const wk = now.toLocaleDateString('en-US',{timeZone:TZ,weekday:'short'});
+  const weekend = (wk==='Sat'||wk==='Sun');
+
+  if(weekend || minsNow>=schoolEnd) return {state:'AFTER', now};
+
+  if(minsNow < schoolStart){
+    const firstStart = dateAtHM(now, sh, sm);
+    return {state:'BEFORE', now, next:SCHEDULE[0], untilMs:+firstStart - +now};
+  }
+
+  for(let i=0;i<SCHEDULE.length;i++){
+    const p=SCHEDULE[i];
+    const {h:hs,m:ms} = timeStrToHM(p.start);
+    const {h:he,m:me} = timeStrToHM(p.end);
+    const s=dateAtHM(now,hs,ms), e=dateAtHM(now,he,me);
+    if(now>=s && now<e){
+      return {state:'DURING', now, p, s, e, next: SCHEDULE[i+1] || null};
+    }
+    if(now<s){
+      return {state:'BETWEEN', now, next:p, untilMs:+s - +now};
+    }
+  }
+  return {state:'AFTER', now};
+}
+
+/* ===== Smooth animation with performance.now() ===== */
+let anim = {
+  active:false,
+  sMs:0, eMs:0,
+  startPerf:0, baseNowMs:0,
+  barEl:null
+};
+
+function startAnim(sDate, eDate){
+  anim.sMs = +sDate;
+  anim.eMs = +eDate;
+  anim.baseNowMs = +nowTZ();      // anchor to current wall-clock once
+  anim.startPerf = performance.now();
+  anim.active = true;
+}
+function stopAnim(){
+  anim.active = false;
+  if(anim.barEl){ anim.barEl.style.width = '0%'; }
+}
+
+function raf(){
+  if(anim.active && anim.barEl){
+    const elapsed = performance.now() - anim.startPerf;
+    const nowMs = anim.baseNowMs + elapsed;
+    const total = anim.eMs - anim.sMs;
+    const done  = nowMs  - anim.sMs;
+    const pct = Math.max(0, Math.min(100, (done/total)*100));
+    anim.barEl.style.width = pct + '%';
+  }
+  requestAnimationFrame(raf);
+}
+
+/* ===== Render ===== */
+/* ===== Render ===== */
+function render(){
+  const st = getStatus();
+  const root = document.getElementById('statusDisplay');
+  const now = st.now || nowTZ();
+
+  document.getElementById('dateDisplay').textContent =
+    now.toLocaleDateString('en-US',{ timeZone:TZ, weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  document.getElementById('currentTime').textContent =
+    now.toLocaleTimeString('en-US',{ timeZone:TZ, hour:'2-digit', minute:'2-digit', second:'2-digit' });
+
+  if(st.state==='DURING'){
+    const leftMin = Math.max(0, Math.ceil((+st.e - +now)/60000));
+    
+    // Only recreate content if the period changed or bar doesn't exist
+    const currentPeriod = root.querySelector('.period-name');
+    if (!currentPeriod || currentPeriod.textContent !== st.p.period) {
+      root.innerHTML = `
+        <div class="status-card" aria-live="polite">
+          <div class="status-label">CURRENT PERIOD</div>
+          <div class="period-name">${st.p.period}</div>
+          <div class="time-display" id="timeLeft">${fmtLeft(leftMin)} left</div>
+
+          <div class="smoothbar-wrap" id="smoothWrap">
+            <div class="smoothbar-label">Progress</div>
+            <div class="smoothbar"><div class="smooth-fill" id="smoothFill"></div></div>
+          </div>
+
+          <div class="period-times">
+            <div>Started: ${st.p.start}</div>
+            <div>Ends: ${st.p.end}</div>
+          </div>
+
+          ${st.next ? `<div class="next-period">Next: <strong>${st.next.period}</strong> at ${st.next.start}</div>` : ``}
+        </div>
+      `;
+      
+      // Setup animation for new period
+      anim.barEl = document.getElementById('smoothFill');
+      document.getElementById('smoothWrap').style.display = '';
+      startAnim(st.s, st.e);
+    } else {
+      // Just update the time left text
+      document.getElementById('timeLeft').textContent = `${fmtLeft(leftMin)} left`;
+    }
+    return;
+  }
+
+  // Not during a period
+  stopAnim();
+
+  if(st.state==='BETWEEN'){
+    root.innerHTML = `
+      <div class="status-card" aria-live="polite">
+        <div class="status-label">BETWEEN PERIODS</div>
+        <div class="period-name">Passing Time</div>
+        <div class="time-display">${fmtLeft(Math.ceil(st.untilMs/60000))} until next period</div>
+        <div class="next-period">Next: <strong>${st.next.period}</strong> at ${st.next.start}</div>
+      </div>
+    `;
+    return;
+  }
+
+  if(st.state==='BEFORE'){
+    root.innerHTML = `
+      <div class="after-hours">
+        <h2>School Day Starts Soon</h2>
+        <p>First period begins at ${st.next.start}.</p>
+        <p class="time-display" style="color:#fff; margin-top:10px; font-size:2.0rem;">
+          ${fmtLeft(Math.ceil(st.untilMs/60000))} until school starts
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  // AFTER / weekend
+  const first = SCHEDULE[0];
+  const tmr = new Date(now); tmr.setDate(tmr.getDate()+1);
+  const {h:fh,m:fm} = timeStrToHM(first.start); tmr.setHours(fh,fm,0,0);
+  const backStr = `${tmr.toLocaleDateString('en-US',{ timeZone:TZ, weekday:'long', month:'long', day:'numeric' })} at ${
+    tmr.toLocaleTimeString('en-US',{ timeZone:TZ, hour:'numeric', minute:'2-digit' })
+  }`;
+  root.innerHTML = `
+    <div class="after-hours">
+      <h2>School Day Has Ended</h2>
+      <p>Nice work today, rest up and take care of yourself.</p>
+      <p style="margin-top:14px;">Next up: <strong>Period 1</strong> starts ${backStr}.</p>
+    </div>
+  `;
+}
+
+/* Init */
+render();
+setInterval(render, 1000);  // update text/labels
+requestAnimationFrame(raf); // glide the bar
+</script>
