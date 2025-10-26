@@ -1,5 +1,3 @@
-<!-- Not gonna lie agin, this was made with AI as a proof of concept -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graduation Countdown</title>
 <style>
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,15 +14,30 @@
 
   body {
     background: white;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    position: relative;
   }
 
+  /* 🎉 Confetti background canvas */
+  #confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 🎓 Countdown overlay */
   #countdown-container {
     position: relative;
+    z-index: 1;
     width: min(90vw, 700px);
     aspect-ratio: 1 / 1;
     display: flex;
@@ -69,7 +82,7 @@
     font-size: clamp(1.4rem, 4vw, 3rem);
     font-weight: 700;
     line-height: 1.1;
-    transform: translateY(-0.07em);
+    transform: translateY(-0.07em); /* 👌 your tuned offset */
   }
 
   .time-label {
@@ -92,8 +105,11 @@
 </head>
 <body>
 
+  <!-- 🎉 Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- 🎓 Countdown Content -->
   <div id="countdown-container">
-    <!-- purple flipped hat -->
     <svg class="cap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <g id="Graduation">
         <polygon points="445.055 384.794 445.055 221.864 418.805 234.989 418.805 384.777 401.301 429.785 462.551 429.785 445.055 384.794"/>
@@ -102,28 +118,23 @@
       </g>
     </svg>
 
-    <!-- timer -->
     <div id="timer">
       <div class="time-group">
         <div class="time-value" id="days">--</div>
         <div class="time-label">DAYS</div>
       </div>
-
       <div class="time-group">
         <div class="time-colon">:</div>
         <div class="time-label">&nbsp;</div>
       </div>
-
       <div class="time-group">
         <div class="time-value" id="hours">--</div>
         <div class="time-label">HOURS</div>
       </div>
-
       <div class="time-group">
         <div class="time-colon">:</div>
         <div class="time-label">&nbsp;</div>
       </div>
-
       <div class="time-group">
         <div class="time-value" id="minutes">--</div>
         <div class="time-label">MIN</div>
@@ -133,33 +144,67 @@
     <div id="label">Graduation Countdown</div>
   </div>
 
-<script>
-    function updateCountdown() {
-    const target = new Date("Jun 11, 2026 15:00:00 GMT").getTime();
-    const now = new Date().getTime();
-    const diff = target - now;
+  <!-- 🎉 Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
 
-    if (diff <= 0) {
-      document.getElementById("days").textContent = "🎓";
-      document.getElementById("hours").textContent = "";
-      document.getElementById("minutes").textContent = "";
-      document.getElementById("label").textContent = "It's Graduation Day!";
-      document.querySelectorAll(".time-colon").forEach(c => c.style.display = "none");
-      return;
+    <script>
+    /* 🎓 Countdown Logic */
+    function updateCountdown() {
+        const target = new Date("Jun 11, 2026 15:00:00 GMT").getTime();
+        const now = new Date().getTime();
+        const diff = target - now;
+
+        if (diff <= 0) {
+            document.getElementById("days").textContent = "🎓";
+            document.getElementById("hours").textContent = "";
+            document.getElementById("minutes").textContent = "";
+            document.getElementById("label").textContent = "It's Graduation Day!";
+            document.querySelectorAll(".time-colon").forEach(c => c.style.display = "none");
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+        document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
-    document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
-  }
+    /* 🎉 Confetti Setup */
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const myConfetti = confetti.create(confettiCanvas, { resize: true, useWorker: true });
 
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    let skew = 1;
+    (function frame() {
+        skew = Math.max(0.8, skew - 0.001);
+
+        myConfetti({
+        particleCount: 2,
+        startVelocity: 0,
+        ticks: 300,
+        origin: {
+            x: Math.random(),
+            y: (Math.random() * skew) - 0.2
+        },
+        colors: ['#5A2D81', '#000000', '#FFFFFF', '#C0C0C0'],
+        gravity: randomInRange(0.4, 0.6),
+        scalar: randomInRange(0.6, 1.2),
+        drift: randomInRange(-0.4, 0.4),
+        shapes: ['square', 'circle']
+        });
+
+        requestAnimationFrame(frame);
+    })();
+    </script>
 
 </body>
 </html>
