@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graduation Countdown</title>
 <style>
-  * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,7 +23,6 @@
     overflow: hidden;
   }
 
-  /* scales by width for consistent proportions */
   #countdown-container {
     position: relative;
     width: min(90vw, 700px);
@@ -44,15 +43,16 @@
     position: absolute;
     top: 37%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
+    transform: translate(-50%, -60%);
     display: flex;
-    gap: clamp(1rem, 4vw, 4rem);
+    align-items: flex-start;
+    justify-content: center;
+    gap: clamp(0.5rem, 1.8vw, 1.8rem);
+    text-align: center;
+    color: white;
     pointer-events: none;
   }
 
-  /* each column for day/hour/min */
   .time-group {
     display: flex;
     flex-direction: column;
@@ -62,13 +62,21 @@
   .time-value {
     font-size: clamp(1.4rem, 4vw, 3rem);
     font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .time-colon {
+    font-size: clamp(1.4rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    transform: translateY(-0.07em);
   }
 
   .time-label {
     font-size: clamp(0.7rem, 1.2vw, 1.1rem);
     font-weight: 600;
-    color: white;
     margin-top: 0.3em;
+    line-height: 1;
   }
 
   #label {
@@ -94,16 +102,28 @@
       </g>
     </svg>
 
-    <!-- centered timer columns -->
+    <!-- timer -->
     <div id="timer">
       <div class="time-group">
         <div class="time-value" id="days">--</div>
         <div class="time-label">DAYS</div>
       </div>
+
+      <div class="time-group">
+        <div class="time-colon">:</div>
+        <div class="time-label">&nbsp;</div>
+      </div>
+
       <div class="time-group">
         <div class="time-value" id="hours">--</div>
         <div class="time-label">HOURS</div>
       </div>
+
+      <div class="time-group">
+        <div class="time-colon">:</div>
+        <div class="time-label">&nbsp;</div>
+      </div>
+
       <div class="time-group">
         <div class="time-value" id="minutes">--</div>
         <div class="time-label">MIN</div>
@@ -114,7 +134,7 @@
   </div>
 
 <script>
-  function updateCountdown() {
+    function updateCountdown() {
     const target = new Date("Jun 11, 2026 15:00:00 GMT").getTime();
     const now = new Date().getTime();
     const diff = target - now;
@@ -124,6 +144,7 @@
       document.getElementById("hours").textContent = "";
       document.getElementById("minutes").textContent = "";
       document.getElementById("label").textContent = "It's Graduation Day!";
+      document.querySelectorAll(".time-colon").forEach(c => c.style.display = "none");
       return;
     }
 
