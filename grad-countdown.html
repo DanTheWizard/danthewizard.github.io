@@ -183,36 +183,47 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
 
   <script>
-    /* Countdown setup */
-    const target = new Date("Jun 11, 2026 15:00:00 GMT").getTime();
+    /* 🎓 Countdown setup — fixed to Eastern Time (NYC) */
+    const targetString = "June 11, 2026 14:00:00";
+    const target = new Date(
+    new Date(targetString + " GMT-0500").toLocaleString("en-US", { timeZone: "America/New_York" })
+    ).getTime();
+
     const canvas = document.getElementById("confetti-canvas");
     const confettiInstance = confetti.create(canvas, { resize: true, useWorker: true });
 
     let running = true; // controls background confetti
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = target - now;
+    function getEasternNow() {
+    // Return current time in EST/EDT as a Date object
+    const nowStr = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
+    return new Date(nowStr);
+    }
 
-      if (diff <= 0 && running) {
+    function updateCountdown() {
+    const now = getEasternNow().getTime();
+    const diff = target - now;
+
+    if (diff <= 0 && running) {
         running = false;
         startCelebration();
         return;
-      }
+    }
 
-      if (diff <= 0) return; // already done
+    if (diff <= 0) return; // already done
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
     }
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
 
     /* 🎉 Continuous background confetti */
     let skew = 1;
