@@ -69,6 +69,55 @@
         .time-display{font-size:2.1rem}
         .period-times{font-size:1rem}
     }
+
+    /* Height-aware tweaks for small displays */
+    @media (max-height: 720px) {
+        body{
+            /* stop vertical centering so the top of the page is always visible */
+            align-items:flex-start;
+            justify-content:center;
+            padding:10px;
+        }
+
+        .header{margin-bottom:14px}
+        .school-name{font-size:1.8rem}
+        .date-display{font-size:1rem}
+
+        .status-card{
+            padding:18px 14px;
+            margin:0 auto 8px;
+            box-shadow:0 8px 24px rgba(0,0,0,.2);
+            border-radius:12px;
+        }
+
+        .status-label{font-size:1rem}
+        .period-name{font-size:2.1rem; margin:6px 0 2px}
+        .time-display{font-size:2.2rem; margin:8px 0 8px}
+
+        .smoothbar-wrap{margin:6px 0 8px}
+        .smoothbar{height:14px; min-width:0}
+
+        .period-times{font-size:0.95rem; margin-top:6px}
+        .next-period{
+            padding:10px;
+            font-size:0.95rem;
+            margin-top:10px;
+        }
+
+        .clock{
+            font-size:0.9rem;
+            margin-top:6px;
+        }
+    }
+
+    /* Extra-small panels (very short screens) */
+    @media (max-height: 520px) {
+        .school-name{font-size:1.5rem}
+        .period-name{font-size:1.8rem}
+        .time-display{font-size:1.8rem}
+        .after-hours h2{font-size:1.8rem}
+        .after-hours p{font-size:1rem}
+    }
 </style>
 
 <script>
