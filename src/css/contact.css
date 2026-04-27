@@ -1,0 +1,28 @@
+.contact-hero {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 2rem;
+    text-align: center;
+}
+
+.contact-hero p {
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.contact-section {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contact-list li {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}

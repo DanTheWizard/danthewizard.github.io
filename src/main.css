@@ -12,6 +12,7 @@
 @import '/src/css/mobile-navbar.css';
 @import '/src/css/dashboard.css';
 @import '/src/css/slider.css';
+@import '/src/css/contact.css';
 
 
 /* If Browser is Dark Mode */
@@ -701,7 +702,42 @@ li-break {
 
 
 
-
+        #page__main section {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem;
+        }
+        
+        #page__main h2 {
+            font-family: "Poppins", sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        #page__main p,
+        #page__main li {
+            font-family: "Rubik", sans-serif;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        #page__main ul {
+            padding-left: 1.5rem;
+        }
+        
+        #page__main li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        .hero-section h2 {
+            font-size: 2.4rem;
+        }
 
 
 
