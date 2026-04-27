@@ -1,0 +1,35 @@
+.page-hero-section {
+    background:
+        linear-gradient(135deg, rgba(32, 8, 44, 0.94), rgba(5, 0, 8, 0.78)),
+        radial-gradient(circle at top left, rgba(192, 68, 255, 0.24), transparent 24rem);
+}
+
+.page-hero-section p {
+    max-width: 850px;
+}
+
+.timeline-list {
+    margin-top: 1rem;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 1rem;
+
+    width: 4px;
+    height: calc(100% - 2rem);
+
+    background: var(--color-accent);
+    border-radius: 999px;
+}
+
+.page-hero-section h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+}

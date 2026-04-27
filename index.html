@@ -1,245 +1,215 @@
-<!DOCTYPE HTML>
-
-<!--This is copied off from my other private website that I have-->
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-
-	<title>Dans Webby Site</title>
+    <!-- Basic page setup -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
 
-    <meta name="description" content="This is my peronal GitHub website. There is nothing much yet, but more will come soon (still under development)">
+    <!-- Page information -->
+    <title>DanTheWizard | Portfolio</title>
+    <meta name="description" content="Portfolio website for DanTheWizard, an Electrical and Computer Engineering Technology student focused on IT support, web development, systems, and cybersecurity.">
+    <meta name="author" content="DanTheWizard">
 
-    <style>
-        body {
-            background: #000000;
-        }
-    </style>
+    <!-- Open Graph / link preview information -->
+    <meta property="og:title" content="DanTheWizard | Portfolio">
+    <meta property="og:description" content="IT support, web development, systems, and cybersecurity projects by DanTheWizard.">
+    <meta property="og:type" content="website">
 
+    <!-- Favicon placeholder -->
+    <link rel="shortcut icon" href="src/images/favicon.ico">
+    <link rel="icon" href="src/images/favicon.ico">
 
-    <link rel="shortcut icon" href="/src/images/favicon.ico">
-    <link rel="icon" href="/src/images/favicon.ico">
-    <link rel="stylesheet" href="/src/main.css">
+    <!-- Single CSS entry point -->
+    <link rel="stylesheet" href="src/css/main.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-
-	
-	<script>
-        function getScript(url) {
-            var s = document.createElement("script");
-            s.type = "text/javascript";
-            s.src = url;
-            document.head.appendChild(s)
-        }
-    </script>
-
-    <script src="/src/main.js"></script>
-    <script src="/src/javascript/jquery-3.7.1-min.js"></script>
-
-    <script>
-    	//$(document).ready(function(){
-        //    $('#main__body').load("/html/base.html");
-        //});
-
-		function load__contents () {
-           getScript('/src/main-end.js');
-		};
-    </script>
-	
+    <!-- Single JavaScript entry point -->
+    <script src="src/js/main.js" defer></script>
 </head>
+<body>
+    <!-- Loaded from arch/header.html by main.js -->
+    <div id="site-header"></div>
 
+    <main class="page-shell">
+        <section class="hero-section panel">
+            <div class="hero-content">
+                <p class="section-eyebrow">Electrical and Computer Engineering Technology Student</p>
 
-<body id="main__body">
-	<div id="main">
-		<!--START HHEADER -->
-		<div class="desktop" id="header__desktop">
-			<!-- Show loading animation until the header is loaded by javascript -->
-			<div class="loader">
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-			</div>
-		</div>
+                <h1>Hi, I'm Dan.</h1>
 
-		<div class="mobile_device_900px" id="header__mobile">               
-			<!-- Show loading animation until the header is loaded by javascript -->
-			<div class="loader">
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-			</div>
-		</div>
+                <p class="hero-subtitle">
+                    also known online as DanTheWizard.
+                    I build, repair, and experiment with technology, from websites and Docker servers
+                    to Active Directory labs, hardware troubleshooting, and cybersecurity-focused projects.
+                </p>
 
-		<hr />
+                <div class="button-row">
+                    <a class="button button-primary" href="projects.html">View My Work</a>
+                    <a class="button button-secondary" href="contact.html">Contact Me</a>
+                </div>
+            </div>
+        </section>
 
-		<!-- END HEADER -->
-		
-		<!-- START MAIN PAGE-->
+        <section class="about-preview-section panel">
+            <div class="section-content">
+                <p class="section-eyebrow">About Me</p>
 
-		<div id="page__main">	
-			<section class="hero-section">
-				<div class="center__text">
-					<h2>Dan The Wizard's Official Website</h2>
-					<img class="center__img img-50 img-mobile-big-to-center" src="/src/images/STEAM/STEAM.png" alt="STEAM Logo" />
-					<p>&#128075; Hello, welcome to my website. My name is Daniel Palmik.</p>
-				</div>
-			</section>
-			
-			<hr />
-			
-			<section>
-				<h2>About Me</h2>
-			
-				<p>
-					I am an Electrical and Computer Engineering Technology student at the New York Institute of Technology, with a strong interest in IT, cybersecurity, system administration, and hands-on technical problem solving.
-				</p>
-			
-				<p>
-					I enjoy figuring out how technology works, fixing problems, building useful tools, and creating systems that make work easier and more secure. Whether I am repairing hardware, writing scripts, setting up servers, or troubleshooting a network issue, I try to understand the full system instead of only fixing the surface-level problem.
-				</p>
-			
-				<p>
-					My main goal is to use technology to help people. I care about keeping users, systems, and data safe, especially as cybersecurity threats become more common. I approach my projects with a security-first mindset, while still keeping systems practical, efficient, and easy to maintain.
-				</p>
-			</section>
-			
-			<hr />
-			
-			<section>
-				<h2>Current Focus</h2>
-			
-				<ul>
-					<li>IT support, hardware repair, and system troubleshooting</li>
-					<li>Cybersecurity fundamentals, networking, Linux, and secure system design</li>
-					<li>Active Directory labs, user management, and policy-based administration</li>
-					<li>Web development using HTML, CSS, JavaScript, PHP, SQL, and WordPress</li>
-					<li>Docker, self-hosted services, reverse proxies, and home lab infrastructure</li>
-					<li>Python, PowerShell, Batch, Bash, and Go for scripting and automation</li>
-				</ul>
-			</section>
-			
-			<hr />
-			
-			<section>
-				<h2>Experience</h2>
-			
-				<ul>
-					<li>
-						<strong>IT Support Technician Intern, NYC Department of Education</strong>
-						<br />
-						I diagnose and repair hardware and software issues, maintain classroom technology, and support staff with daily technical needs in a high school environment.
-					</li>
-			
-					<li>
-						<strong>Freelance Web Developer and Technical Support</strong>
-						<br />
-						I help clients build, maintain, secure, and troubleshoot websites, including WordPress sites, domain setup, DNS configuration, hosting setup, and Cloudflare protection.
-					</li>
-			
-					<li>
-						<strong>Freelance Tech Repair</strong>
-						<br />
-						I repair and troubleshoot computers, devices, and other technical equipment, which has helped me become faster and more confident when diagnosing unfamiliar problems.
-					</li>
-				</ul>
-			</section>
-			
-			<hr />
-			
-			<section>
-				<h2>Certifications</h2>
-			
-				<ul>
-					<li>
-						<strong>Google Cybersecurity Certificate</strong>
-						<br />
-						Completed through Coursera, covering cybersecurity fundamentals, networking, Linux, security operations, and risk management.
-					</li>
-				</ul>
-			</section>
-			
-			<hr />
-			
-			<section>
-				<h2>Projects</h2>
-			
-				<ul>
-					<li>
-						<strong>Active Directory Lab</strong>
-						<br />
-						Built a virtualized Active Directory environment to practice domain controller setup, user management, group policy concepts, and centralized authentication.
-					</li>
-			
-					<li>
-						<strong>Remote Management Dashboard</strong>
-						<br />
-						Developing a Go-based web dashboard for managing users and systems, with a focus on clean administration, security, and practical control over multiple machines.
-					</li>
-			
-					<li>
-						<strong>Home Lab Environment</strong>
-						<br />
-						Maintaining a self-hosted server environment with Docker, DNS filtering, reverse proxy services, secure remote access, and Cloudflare Tunnel.
-					</li>
-			
-					<li>
-						<strong>Web Projects</strong>
-						<br />
-						Building and maintaining websites using WordPress, PHP, SQL, HTML, CSS, and JavaScript, including client-focused website support and performance improvements.
-					</li>
-				</ul>
-			</section>
-			
-			<hr />
-			
-			<section>
-				<h2>Hands-On Builds</h2>
-			
-				<p>
-					Outside of software and IT, I enjoy working on physical engineering and maker-style projects with friends and coworkers. These projects have helped me build practical problem-solving skills that carry over into my technical work.
-				</p>
-			
-				<ul>
-					<li>Assisted with assembling an aircraft project that is being converted into a flight simulator</li>
-					<li>Helped convert a Maserati into a driving simulator</li>
-					<li>Worked on converting an old box truck into a retro gaming station</li>
-					<li>Created 3D printed parts and objects for different requests</li>
-					<li>Helped troubleshoot and repair different types of technology and equipment</li>
-				</ul>
-			</section>
-			
-		</div>
-		
-		<!-- END MAIN PAGE -->
+                <h2>Hands-on with hardware, software, and systems.</h2>
 
-		<script>
-			load__contents();
-		</script>	
-		
-		<hr />
+                <p>
+                    I am an Electrical and Computer Engineering Technology student at the New York
+                    Institute of Technology with experience in IT support, web development, computer
+                    repair, and system administration projects. I enjoy understanding how technology
+                    works from both the user side and the system side.
+                </p>
 
-		<!-- START FOOTER -->
-		
-		<div id="my__footer">
-			<!-- Show loading animation until the header is loaded by javascript -->
-			<div class="loader">
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-			</div>
-		</div>
+                <p>
+                    My work includes troubleshooting computers, maintaining websites, experimenting
+                    with Linux and Docker, building virtualized Active Directory-style environments,
+                    and creating practical tools that solve real problems.
+                </p>
 
-		<!-- END FOOTER -->
-	</div>
+                <a class="text-link" href="about.html">Learn more about me.</a>
+            </div>
+        </section>
+
+        <section class="skills-section panel">
+            <div class="section-heading">
+                <p class="section-eyebrow">Skills</p>
+                <h2>What I Work With</h2>
+                <p>
+                    My main focus is practical technical work, including support, development,
+                    infrastructure, and security-focused learning.
+                </p>
+            </div>
+
+            <div class="card-grid">
+                <article class="info-card">
+                    <h3>IT Support</h3>
+                    <p>
+                        Hardware diagnostics, Windows troubleshooting, classroom technology,
+                        printers, user support, and general device maintenance.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Web Development</h3>
+                    <p>
+                        HTML, CSS, JavaScript, PHP, WordPress, client website updates,
+                        domain setup, hosting, and Cloudflare configuration.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Systems and Networking</h3>
+                    <p>
+                        Linux servers, Docker containers, DNS, virtual machines, Samba4,
+                        Active Directory-style labs, and internal web tools.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Cybersecurity</h3>
+                    <p>
+                        Security-focused learning, Google Cybersecurity Certificate,
+                        NYITSec involvement, system hardening concepts, and lab-based practice.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section panel">
+            <div class="section-heading">
+                <p class="section-eyebrow">Projects</p>
+                <h2>Featured Work</h2>
+                <p>
+                    These projects represent the kind of work I enjoy most: practical systems,
+                    useful tools, and technology that solves real problems.
+                </p>
+            </div>
+
+            <div class="project-list">
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Samba4 Active Directory Lab</h3>
+                        <p class="project-type">Systems / Networking / Virtualization</p>
+                    </div>
+
+                    <p>
+                        Built a virtualized Active Directory-style lab using Samba4, Windows clients,
+                        DNS, Kerberos, and Group Policy testing. This project helped me better
+                        understand domain environments and centralized computer management.
+                    </p>
+
+                    <ul class="tag-list" aria-label="Project skills">
+                        <li>Samba4</li>
+                        <li>Linux</li>
+                        <li>Windows</li>
+                        <li>VirtualBox</li>
+                        <li>DNS</li>
+                    </ul>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Go-Based User Dashboard</h3>
+                        <p class="project-type">Web Development / Systems Tooling</p>
+                    </div>
+
+                    <p>
+                        Developed a web dashboard concept for LDAP login, user management,
+                        group assignment, ban notices, password resets, and audit logging.
+                        The goal was to connect a clean web interface with real backend system control.
+                    </p>
+
+                    <ul class="tag-list" aria-label="Project skills">
+                        <li>Go</li>
+                        <li>LDAP</li>
+                        <li>PostgreSQL</li>
+                        <li>Docker</li>
+                        <li>Sessions</li>
+                    </ul>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Website Administration and Client Support</h3>
+                        <p class="project-type">Freelance / Web Support</p>
+                    </div>
+
+                    <p>
+                        Helped maintain websites, update content, configure domains, secure sites
+                        through Cloudflare, compare hosting options, and troubleshoot website issues
+                        when clients needed changes or repairs.
+                    </p>
+
+                    <ul class="tag-list" aria-label="Project skills">
+                        <li>WordPress</li>
+                        <li>Cloudflare</li>
+                        <li>Hosting</li>
+                        <li>Domains</li>
+                        <li>Support</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact-preview-section panel">
+            <div class="section-content">
+                <p class="section-eyebrow">Contact</p>
+
+                <h2>Interested in working together?</h2>
+
+                <p>
+                    For IT support, web development, technical projects, or professional opportunities,
+                    feel free to reach out.
+                </p>
+
+                <a class="button button-primary" href="contact.html">Contact Me</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loaded from arch/footer.html by main.js -->
+    <div id="site-footer"></div>
 </body>
-
-
 </html>

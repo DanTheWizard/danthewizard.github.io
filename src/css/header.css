@@ -1,0 +1,108 @@
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    background: rgba(5, 0, 8, 0.88);
+    border-bottom: 1px solid var(--color-border-soft);
+    backdrop-filter: blur(12px);
+}
+
+.nav-shell {
+    width: min(100% - 2rem, var(--container-width));
+    margin: 0 auto;
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    color: var(--color-text);
+    font-weight: 800;
+}
+
+/* .brand-mark {
+    display: inline-grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--color-accent);
+    border-radius: 50%;
+    background: var(--color-primary-dark);
+    color: var(--color-accent);
+
+    box-shadow: 0 0 14px var(--color-accent-soft);
+} */
+
+.brand-logo {
+    width: 42px;
+    height: 42px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+    border: 1px solid var(--color-accent);
+
+    background: var(--color-primary-dark);
+    padding: 4px;
+
+    box-shadow: 0 0 14px var(--color-accent-soft);
+
+    transition: var(--transition);
+}
+
+.site-brand:hover .brand-logo {
+    transform: rotate(-6deg) scale(1.05);
+    box-shadow: 0 0 20px var(--color-accent-soft);
+}
+
+.brand-text {
+    letter-spacing: 0.04em;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.site-nav a {
+    color: var(--color-text-muted);
+    padding: 0.55rem 0.8rem;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+}
+
+.site-nav a:hover,
+.site-nav a.is-active {
+    color: var(--color-text);
+    background: var(--color-accent-soft);
+}
+
+@media (max-width: 700px) {
+    .nav-shell {
+        min-height: auto;
+        padding: 0.9rem 0;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .site-nav {
+        justify-content: flex-start;
+    }
+
+    .site-nav a {
+        padding: 0.45rem 0.65rem;
+    }
+}

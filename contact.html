@@ -1,166 +1,133 @@
-<!DOCTYPE HTML>
-
-	<title>Dans Webby Site</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic page setup -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
 
-    <meta name="description" content="This is a page on where you can find and contact me for any questions">
+    <!-- Page information -->
+    <title>Contact | DanTheWizard</title>
+    <meta name="description" content="Contact DanTheWizard for IT support, web development, technical projects, or professional opportunities.">
+    <meta name="author" content="DanTheWizard">
 
-    <style>
-        body {
-            background: #000000;
-        }
-    </style>
+    <!-- Open Graph / link preview information -->
+    <meta property="og:title" content="Contact | DanTheWizard">
+    <meta property="og:description" content="Contact DanTheWizard for IT support, web development, systems, or cybersecurity-related opportunities.">
+    <meta property="og:type" content="website">
 
+    <!-- Favicon placeholder -->
+    <link rel="shortcut icon" href="src/images/favicon.ico">
+    <link rel="icon" href="src/images/favicon.ico">
 
-    <link rel="shortcut icon" href="/src/images/favicon.ico">
-    <link rel="icon" href="/src/images/favicon.ico">
-    <link rel="stylesheet" href="/src/main.css">
+    <!-- Single CSS entry point -->
+    <link rel="stylesheet" href="src/css/main.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-
-	
-	<script>
-        function getScript(url) {
-            var s = document.createElement("script");
-            s.type = "text/javascript";
-            s.src = url;
-            document.head.appendChild(s)
-        }
-    </script>
-
-    <script src="/src/main.js"></script>
-    <script src="/src/javascript/jquery-3.7.1-min.js"></script>
-
-    <script>
-    	//$(document).ready(function(){
-        //    $('#main__body').load("/html/base.html");
-        //});
-
-		function load__contents () {
-        	getScript('/src/main-end.js');
-		};
-    </script>
-	
+    <!-- Single JavaScript entry point -->
+    <script src="src/js/main.js" defer></script>
 </head>
+<body>
+    <!-- Loaded from arch/header.html by main.js -->
+    <div id="site-header"></div>
 
+    <main class="page-shell">
+        <section class="page-hero-section panel">
+            <p class="section-eyebrow">Contact</p>
 
-<body id="main__body">
-	<div id="main">
-		<!--START HHEADER -->
-		<div class="desktop" id="header__desktop">
-			<!-- Show loading animation until the header is loaded by javascript -->
-			<div class="loader">
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-			</div>
-		</div>
+            <h1>Let's get in touch.</h1>
 
-		<div class="mobile_device_900px" id="header__mobile">               
-			<!-- Show loading animation until the header is loaded by javascript -->
-			<div class="loader">
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-			</div>
-		</div>
+            <p>
+                For IT support, web development, technical projects, internships, or professional
+                opportunities, feel free to reach out through one of the links below.
+            </p>
+        </section>
 
-		<hr />
+        <section class="panel">
+            <div class="section-heading">
+                <p class="section-eyebrow">Links</p>
+                <h2>Find Me Online</h2>
+            </div>
 
-		<!-- END HEADER -->
+            <div class="contact-grid">
+                <article class="contact-card">
+                    <h3>Email</h3>
+                    <p>
+                        The best way to contact me for direct messages, opportunities,
+                        or project-related questions.
+                    </p>
+                    <a class="button button-secondary" href="mailto:wizard@tville.stream">Email Me</a>
+                </article>
 
+                <article class="contact-card">
+                    <h3>GitHub</h3>
+                    <p>
+                        View my code, website projects, experiments, and technical repositories.
+                    </p>
+                    <a class="button button-secondary" href="https://github.com/DanTheWizard" target="_blank" rel="noopener noreferrer">View GitHub</a>
+                </article>
 
-		<!-- START MAIN PAGE-->
+                <article class="contact-card">
+                    <h3>LinkedIn</h3>
+                    <p>
+                        Connect with me professionally and view my experience, education,
+                        certifications, and project updates.
+                    </p>
+                    <a class="button button-secondary" href="https://www.linkedin.com/in/danielpalmik/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+                </article>
 
-		<div id="page__main">
-			<section class="contact-hero">
-				<div class="center__text">
-					<h2>Contact Me</h2>
-					<p>
-						Have a question, project idea, or technical issue you want to discuss?
-						Feel free to reach out using one of the options below.
-					</p>
-				</div>
-			</section>
-		
-			<hr />
-		
-			<section class="contact-section">
-				<h2>Contact Information</h2>
-		
-				<ul class="contact-list">
-					<li>
-						<strong>Email:</strong>
-						<a class="inline" href="mailto:danielpalmik@gmail.com">danielpalmik@gmail.com</a>
-					</li>
-		
-					<li>
-						<strong>Business Inquiries:</strong>
-						<a class="inline" href="mailto:danielpalmik+businessinquiry@gmail.com">danielpalmik+businessinquiry@gmail.com</a>
-					</li>
-		
-					<li>
-						<strong>GitHub:</strong>
-						<a class="inline" href="https://github.com/DanTheWizard" target="_blank" rel="noopener noreferrer">
-							github.com/DanTheWizard
-						</a>
-					</li>
-		
-					<li>
-						<strong>LinkedIn:</strong>
-						<a class="inline" href="https://linkedin.com/in/danielpalmik" target="_blank" rel="noopener noreferrer">
-							LinkedIn Profile
-						</a>
-					</li>
-				</ul>
-			</section>
-		
-			<hr />
-		
-			<section class="contact-section">
-				<h2>What You Can Contact Me About</h2>
-		
-				<ul>
-					<li>IT support, troubleshooting, and repair questions</li>
-					<li>Website setup, WordPress support, domains, DNS, and Cloudflare</li>
-					<li>Cybersecurity, networking, and home lab projects</li>
-					<li>Programming, scripting, automation, and technical project ideas</li>
-				</ul>
-			</section>
-		</div>
-		
+                <!-- <article class="contact-card">
+                    <h3>Resume</h3>
+                    <p>
+                        Download or view my current resume for a quick summary of my experience,
+                        skills, projects, and education.
+                    </p>
+                    <a class="button button-secondary" href="src/files/resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+                </article> -->
+            </div>
+        </section>
 
+        <section class="panel">
+            <div class="section-heading">
+                <p class="section-eyebrow">What to Contact Me About</p>
+                <h2>Areas I Can Help With</h2>
+            </div>
 
+            <div class="card-grid">
+                <article class="info-card">
+                    <h3>IT Support</h3>
+                    <p>
+                        Computer troubleshooting, hardware diagnostics, Windows issues,
+                        device setup, and general technical support.
+                    </p>
+                </article>
 
-		<!-- END MAIN PAGE -->
-		
-		<script>
-			load__contents();
-		</script>	
-		
-		<hr />
+                <article class="info-card">
+                    <h3>Websites</h3>
+                    <p>
+                        Website updates, WordPress support, basic frontend work, domains,
+                        hosting, Cloudflare setup, and small web projects.
+                    </p>
+                </article>
 
-		<!-- START FOOTER -->
-		
-		<div id="my__footer">
-			<!-- Show loading animation until the header is loaded by javascript -->
-			<div class="loader">
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-			</div>
-		</div>
+                <article class="info-card">
+                    <h3>Technical Projects</h3>
+                    <p>
+                        Systems projects, Docker setups, Linux experimentation, virtual machines,
+                        server ideas, and custom internal tools.
+                    </p>
+                </article>
 
-		<!-- END FOOTER -->
-	</div>
+                <article class="info-card">
+                    <h3>Professional Opportunities</h3>
+                    <p>
+                        Internships, entry-level technical roles, project collaborations,
+                        and opportunities related to IT, systems, or cybersecurity.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loaded from arch/footer.html by main.js -->
+    <div id="site-footer"></div>
 </body>
-
-
 </html>

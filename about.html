@@ -1,198 +1,224 @@
-<!DOCTYPE HTML>
-
-<!--This is copied off from my other private website that I have-->
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-
-	<title>Dans Webby Site</title>
+    <!-- Basic page setup -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
 
-    <meta name="description" content="This is my peronal GitHub website. There is nothing much yet, but more will come soon (still under development)">
+    <!-- Page information -->
+    <title>About Me | DanTheWizard</title>
+    <meta name="description" content="Learn more about DanTheWizard, an Electrical and Computer Engineering Technology student focused on IT support, web development, systems, and cybersecurity.">
+    <meta name="author" content="DanTheWizard">
 
-    <style>
-        body {
-            background: #000000;
-        }
-    </style>
+    <!-- Open Graph / link preview information -->
+    <meta property="og:title" content="About Me | DanTheWizard">
+    <meta property="og:description" content="About DanTheWizard, including education, technical interests, hands-on experience, and career direction.">
+    <meta property="og:type" content="website">
 
+    <!-- Favicon placeholder -->
+    <link rel="shortcut icon" href="src/images/favicon.ico">
+    <link rel="icon" href="src/images/favicon.ico">
 
-    <link rel="shortcut icon" href="/src/images/favicon.ico">
-    <link rel="icon" href="/src/images/favicon.ico">
-    <link rel="stylesheet" href="/src/main.css">
+    <!-- Single CSS entry point -->
+    <link rel="stylesheet" href="src/css/main.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-
-	
-	<script>
-        function getScript(url) {
-            var s = document.createElement("script");
-            s.type = "text/javascript";
-            s.src = url;
-            document.head.appendChild(s)
-        }
-    </script>
-
-    <script src="/src/main.js"></script>
-    <script src="/src/javascript/jquery-3.7.1-min.js"></script>
-
-    <script>
-    	//$(document).ready(function(){
-        //    $('#main__body').load("/html/base.html");
-        //});
-
-		function load__contents () {
-           getScript('/src/main-end.js');
-		};
-    </script>
-	
+    <!-- Single JavaScript entry point -->
+    <script src="src/js/main.js" defer></script>
 </head>
+<body>
+    <!-- Loaded from arch/header.html by main.js -->
+    <div id="site-header"></div>
 
+    <main class="page-shell">
+        <section class="page-hero-section panel">
+            <p class="section-eyebrow">About Me</p>
 
-<body id="main__body">
-	<div id="main">
-		<!--START HHEADER -->
-		<div class="desktop" id="header__desktop">
-			<!-- Show loading animation until the header is loaded by javascript -->
-			<div class="loader">
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-			</div>
-		</div>
+            <h1>Technology has always been something I wanted to understand, fix, and build with.</h1>
 
-		<div class="mobile_device_900px" id="header__mobile">               
-			<!-- Show loading animation until the header is loaded by javascript -->
-			<div class="loader">
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-			</div>
-		</div>
+            <p>
+                I am Dan, also known online as DanTheWizard. I am an Electrical and Computer
+                Engineering Technology student at the New York Institute of Technology with an interest
+                in IT support, systems, web development, and cybersecurity.
+            </p>
+        </section>
 
-		<hr />
+        <section class="panel">
+            <div class="section-heading">
+                <p class="section-eyebrow">Background</p>
+                <h2>How I Work</h2>
+            </div>
 
-		<!-- END HEADER -->
-		
-		<!-- START MAIN PAGE-->
-
-        <div id="page__main">
-            <section class="about-hero">
-                <div class="center__text">
-                    <h2>About Me</h2>
+            <div class="two-column-layout">
+                <div>
                     <p>
-                        I like understanding how technology works, fixing problems, and building systems
-                        that are practical, secure, and useful.
+                        My technical experience is mostly hands-on. I enjoy diagnosing problems,
+                        fixing devices, testing systems, and building small tools or websites that make
+                        things easier to manage. I like working through problems step by step, whether
+                        that means troubleshooting a computer, repairing hardware, configuring a server,
+                        or debugging code.
+                    </p>
+
+                    <p>
+                        Through school, internships, freelance work, and personal projects, I have
+                        worked with computer hardware, classroom technology, websites, virtual machines,
+                        Linux servers, Docker containers, and networking concepts.
                     </p>
                 </div>
-            </section>
-        
-            <hr />
-        
-            <section>
-                <h2>Who I Am</h2>
-        
-                <p>
-                    My name is Daniel Palmik, also known as Dan The Wizard. I am currently pursuing a
-                    Bachelor of Science in Electrical and Computer Engineering Technology at the New York
-                    Institute of Technology. My main interests are IT support, cybersecurity, system
-                    administration, web development, and hands-on engineering projects.
-                </p>
-        
-                <p>
-                    I enjoy working with both hardware and software. I have experience troubleshooting
-                    computers, repairing devices, supporting classroom technology, building websites,
-                    setting up self-hosted services, and experimenting with systems such as Active Directory,
-                    Docker, Linux, and secure remote access.
-                </p>
-            </section>
-        
-            <hr />
-        
-            <section>
-                <h2>What I Focus On</h2>
-        
-                <ul>
-                    <li><strong>IT Support:</strong> diagnosing hardware, software, printer, and user-support issues.</li>
-                    <li><strong>Cybersecurity:</strong> learning how to reduce attack surfaces and protect systems.</li>
-                    <li><strong>System Administration:</strong> working with users, groups, policies, servers, and services.</li>
-                    <li><strong>Web Development:</strong> building and maintaining websites using WordPress, PHP, SQL, HTML, CSS, and JavaScript.</li>
-                    <li><strong>Automation:</strong> using scripts and tools to make repetitive technical tasks easier.</li>
-                </ul>
-            </section>
-        
-            <hr />
-        
-            <section>
-                <h2>Experience and Learning</h2>
-        
-                <p>
-                    As an IT Support Technician Intern with the New York City Department of Education, I work
-                    with hardware and software issues, maintain classroom technology, and support staff with
-                    daily technical needs in a high school environment.
-                </p>
-        
-                <p>
-                    Outside of that role, I do freelance website and technical support work. This includes
-                    website maintenance, domain setup, DNS configuration, Cloudflare security, hosting setup,
-                    and troubleshooting technical problems for clients.
-                </p>
-        
-                <p>
-                    I also completed the Google Cybersecurity Certificate, which helped strengthen my
-                    understanding of networking, Linux, security operations, risk management, and cybersecurity
-                    fundamentals.
-                </p>
-            </section>
-        
-            <hr />
-        
-            <section>
-                <h2>How I Approach Technology</h2>
-        
-                <p>
-                    I try to approach technology with a security-first mindset. That means I care about making
-                    systems efficient, but also reducing unnecessary exposure, planning for recovery, and making
-                    sure the system can be maintained later.
-                </p>
-        
-                <p>
-                    When I do not know something, I research it, test it, break it down, and try to understand
-                    why it works. That mindset is what pushes me to keep learning and building.
-                </p>
-            </section>
-        </div>
-		
-		<!-- END MAIN PAGE -->
 
-		<script>
-			load__contents();
-		</script>	
-		
-		<hr />
+                <div>
+                    <p>
+                        I am currently building my path toward cybersecurity while keeping a strong
+                        foundation in systems and practical IT work. I use what I learn through my
+                        Bachelor's degree in Electrical and Computer Engineering Technology to
+                        support my hands-on work and expand my understanding through real-world
+                        problem solving.
+                    </p>
+                    
+                    <p>
+                        I believe understanding how systems are built and maintained is important
+                        before trying to secure them.
+                    </p>
+                    
+                    <p>
+                        My goal is to continue developing both my technical and professional skills
+                        through real projects, internships, lab work, and security-focused learning.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-		<!-- START FOOTER -->
-		
-		<div id="my__footer">
-			<!-- Show loading animation until the header is loaded by javascript -->
-			<div class="loader">
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-				<span class="loader__element"></span>
-			</div>
-		</div>
+        <section class="panel">
+            <div class="section-heading">
+                <p class="section-eyebrow">Focus Areas</p>
+                <h2>What I Like Working On</h2>
+            </div>
 
-		<!-- END FOOTER -->
-	</div>
+            <div class="card-grid">
+                <article class="info-card">
+                    <h3>Computer Repair and IT Support</h3>
+                    <p>
+                        Diagnosing hardware and software issues, supporting users, maintaining devices,
+                        and keeping technology working in real environments.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Websites and Web Tools</h3>
+                    <p>
+                        Building websites, maintaining client pages, working with WordPress,
+                        creating custom pages, and experimenting with backend-connected tools.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Servers and Infrastructure</h3>
+                    <p>
+                        Working with Docker, Linux, virtual machines, DNS, internal services,
+                        reverse proxies, and Active Directory-style lab environments.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Cybersecurity</h3>
+                    <p>
+                        Learning security concepts, studying defensive practices, experimenting in labs,
+                        and connecting system administration knowledge with security thinking.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <p class="section-eyebrow">Experience</p>
+                <h2>Current Technical Direction</h2>
+            </div>
+
+            <div class="timeline-list">
+                <article class="timeline-item">
+                    <h3>Electrical and Computer Engineering Technology Student</h3>
+                    <p class="timeline-meta">New York Institute of Technology</p>
+                    <p>
+                        Studying technical topics related to computer systems, electronics,
+                        programming, networking, and engineering technology.
+                    </p>
+                </article>
+
+                <article class="timeline-item">
+                    <h3>IT Support Technician Intern</h3>
+                    <p class="timeline-meta">New York City Department of Education</p>
+                    <p>
+                        Assisted with technology support, device maintenance, troubleshooting,
+                        classroom equipment, and day-to-day technical operations.
+                    </p>
+                </article>
+
+                <article class="timeline-item">
+                    <h3>Website Administrator and Freelance Web Support</h3>
+                    <p class="timeline-meta">Websites, domains, hosting, and support</p>
+                    <p>
+                        Managed website updates, supported client requests, configured domains,
+                        helped secure sites through Cloudflare, and maintained web projects when
+                        issues appeared.
+                    </p>
+                </article>
+
+                <article class="timeline-item">
+                    <h3>Cybersecurity and Systems Projects</h3>
+                    <p class="timeline-meta">Personal labs and ongoing learning</p>
+                    <p>
+                        Built and tested virtualized infrastructure projects involving Samba4,
+                        Windows clients, LDAP concepts, Docker, PostgreSQL, and custom web dashboards.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <p class="section-eyebrow">Certifications</p>
+                <h2>Certifications and Learning</h2>
+            </div>
+
+            <div class="card-grid">
+                <article class="info-card">
+                    <h3>Google Cybersecurity Certificate</h3>
+                    <p>
+                        Completed cybersecurity-focused training covering security concepts,
+                        risk awareness, tools, and foundational defensive practices.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h3>Ongoing Cybersecurity Path</h3>
+                    <p>
+                        Continuing to build security knowledge through coursework, club involvement,
+                        personal labs, and hands-on infrastructure projects.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact-preview-section panel">
+            <div class="section-content">
+                <p class="section-eyebrow">Next Step</p>
+
+                <h2>Want to see what I have worked on?</h2>
+
+                <p>
+                    My projects show the systems, websites, and technical tools I have been building
+                    while developing my skills.
+                </p>
+
+                <div class="button-row">
+                    <a class="button button-primary" href="projects.html">View Projects</a>
+                    <a class="button button-secondary" href="contact.html">Contact Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loaded from arch/footer.html by main.js -->
+    <div id="site-footer"></div>
 </body>
-
-
 </html>

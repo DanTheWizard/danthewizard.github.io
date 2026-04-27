@@ -1,0 +1,13 @@
+.project-card-large {
+    padding: 1.75rem;
+}
+
+.project-card-large p {
+    max-width: 900px;
+    line-height: 1.75;
+}
+
+.project-card-large .button-row {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

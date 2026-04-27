@@ -1,0 +1,19 @@
+@import url("variables.css");
+@import url("base.css");
+@import url("layout.css");
+@import url("header.css");
+@import url("footer.css");
+@import url("buttons.css");
+@import url("cards.css");
+@import url("home.css");
+@import url("about.css");
+@import url("contact.css");
+@import url("projects.css");
+
+/*
+    DanTheWizard Portfolio
+    Main CSS entry point.
+
+    Every HTML page should load this file only.
+    This file imports the smaller CSS files used by the site.
+*/
