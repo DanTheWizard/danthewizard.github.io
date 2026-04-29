@@ -17,7 +17,8 @@ body {
     color: var(--color-text);
     background:
         radial-gradient(circle at top, rgba(101, 29, 138, 0.45), transparent 38rem),
-        linear-gradient(135deg, #050008 0%, #100014 45%, #000000 100%);
+        linear-gradient(135deg, #050008 0%, #100014 45%, #000000 100%)
+        #000000;
 
     overflow-x: hidden;
 }

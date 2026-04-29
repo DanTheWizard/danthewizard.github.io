@@ -8,7 +8,7 @@ console.log("██║███╗██║██║ ███╔╝  ██╔�
 console.log("╚███╔███╔╝██║███████╗██║  ██║██║  ██║██████╔╝");
 console.log(" ╚══╝╚══╝ ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ");
 console.log("---------------------------------------------");
-console.log("");
+console.log(" ");
 
 /**
  * Dynamically loads another JavaScript file.
@@ -38,12 +38,14 @@ function loadScript(scriptPath) {
 async function loadPortfolioScripts() {
     const scripts = [
         "src/js/partials.js",
+        "src/js/fluid_loader.js",
         "src/js/active-nav.js"
     ];
 
     for (const script of scripts) {
         try {
             await loadScript(script);
+            // console.log(`✅ Loaded script: ${script}`);
         } catch (error) {
             console.error(error);
         }
@@ -56,7 +58,7 @@ async function loadPortfolioScripts() {
 async function initializePortfolio() {
     await loadPortfolioScripts();
 
-    console.log("✅ main.js v1.0.0 has been loaded");
+    console.log("✅ main.js v1.0.1 has been loaded");
 }
 
 document.addEventListener("DOMContentLoaded", initializePortfolio);
