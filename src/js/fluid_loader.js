@@ -69,12 +69,11 @@ async function loadFluidBackground() {
         const pointer = fluid.pointers[0]; 
         pointer.down = true;
 
-        // Listen to the global window for movement
-        window.addEventListener('mousemove', (e) => {
+        function moveFluidPointer(clientX, clientY) {
             // Update the simulation's internal pointer coordinates directly
             // Use clientX/Y so the coordinates match the fixed-position canvas
-            pointer.texcoordX = e.clientX / window.innerWidth;
-            pointer.texcoordY = 1.0 - e.clientY / window.innerHeight;
+            pointer.texcoordX = clientX / window.innerWidth;
+            pointer.texcoordY = 1.0 - clientY / window.innerHeight;
             
             // Also update the 'prev' coordinates to prevent "teleporting" streaks
             pointer.prevTexcoordX = pointer.texcoordX;
@@ -82,10 +81,30 @@ async function loadFluidBackground() {
             
             // Dispatch the event if the library needs a trigger
             fluidcanvas.dispatchEvent(new MouseEvent('mousemove', {
-                clientX: e.clientX,
-                clientY: e.clientY
+                clientX,
+                clientY
             }));
+        }
+
+        // Listen to the global window for movement
+        window.addEventListener('mousemove', (e) => {
+            moveFluidPointer(e.clientX, e.clientY);
         });
+
+        // Also support touch input for mobile devices
+        window.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            if (!touch) return;
+
+            moveFluidPointer(touch.clientX, touch.clientY);
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            if (!touch) return;
+
+            moveFluidPointer(touch.clientX, touch.clientY);
+        }, { passive: true });
 
     } catch (err) {
         console.error('[fluid_loader] Error:', err);
