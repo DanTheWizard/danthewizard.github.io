@@ -63,22 +63,14 @@ async function loadFluidBackground() {
 
 
         fluid.activate();
-
-        
-        // Force the pointer to always be "pressed"
-        const pointer = fluid.pointers[0]; 
-        pointer.down = true;
+        let fluidReady = false;
+        setTimeout(() => { fluidReady = true; }, 250);
 
         function moveFluidPointer(clientX, clientY) {
-            // Update the simulation's internal pointer coordinates directly
-            // Use clientX/Y so the coordinates match the fixed-position canvas
-            pointer.texcoordX = clientX / window.innerWidth;
-            pointer.texcoordY = 1.0 - clientY / window.innerHeight;
-            
-            // Also update the 'prev' coordinates to prevent "teleporting" streaks
-            pointer.prevTexcoordX = pointer.texcoordX;
-            pointer.prevTexcoordY = pointer.texcoordY;
-            
+            if (!fluidReady) return; // ignore all mouse events during startup
+            // This allows Fluid to load and initialize. As if moving mouse while it loads, it just unloads
+            // Lol Macguyver solution
+
             // Dispatch the event if the library needs a trigger
             fluidcanvas.dispatchEvent(new MouseEvent('mousemove', {
                 clientX,
