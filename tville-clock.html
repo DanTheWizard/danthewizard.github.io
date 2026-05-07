@@ -135,9 +135,16 @@ const SCHEDULE = [
   { period:'Period 9', start:'2:00 PM', end:'2:47 PM' }
 ];
 
+let clockOffsetMs = 0;
+let clockSynced = false;
+
 /* ===== Utilities ===== */
+function correctedNow(){
+  return new Date(Date.now() + clockOffsetMs);
+}
+
 function nowTZ(){ 
-  return new Date(new Date().toLocaleString('en-US', { timeZone: TZ })); 
+  return new Date(correctedNow().toLocaleString('en-US', { timeZone: TZ })); 
 }
 
 function timeStrToHM(str){
@@ -150,6 +157,35 @@ function fmtLeft(mins){
   if(mins<=0) return '0:00';
   const h=(mins/60)|0, m=mins%60;
   return h? (m?`${h} hour${h!==1?'s':''} ${m} minute${m!==1?'s':''}`:`${h} hour${h!==1?'s':''}`) : `${m} minute${m!==1?'s':''}`;
+}
+
+async function syncClock(){
+  if (location.protocol === 'file:') return;
+
+  const startedAt = Date.now();
+  try {
+    const response = await fetch(location.href, {
+      method: 'HEAD',
+      cache: 'no-store'
+    });
+    const serverDate = response.headers.get('date');
+    if (!serverDate) return;
+
+    const serverMs = Date.parse(serverDate);
+    if (!Number.isFinite(serverMs)) return;
+
+    const endedAt = Date.now();
+    const localMidpointMs = startedAt + ((endedAt - startedAt) / 2);
+    clockOffsetMs = serverMs - localMidpointMs;
+    clockSynced = true;
+
+    if (anim.active) {
+      anim.baseNowMs = +nowTZ();
+      anim.startPerf = performance.now();
+    }
+  } catch {
+    // If sync fails, keep using the local clock instead of blanking the display.
+  }
 }
 
 /* ===== Status (with ms) ===== */
@@ -227,7 +263,7 @@ function render(){
   document.getElementById('dateDisplay').textContent =
     now.toLocaleDateString('en-US',{ timeZone:TZ, weekday:'long', year:'numeric', month:'long', day:'numeric' });
   document.getElementById('currentTime').textContent =
-    now.toLocaleTimeString('en-US',{ timeZone:TZ, hour:'2-digit', minute:'2-digit', second:'2-digit' });
+    `${now.toLocaleTimeString('en-US',{ timeZone:TZ, hour:'2-digit', minute:'2-digit', second:'2-digit' })}${clockSynced ? '' : ' (local clock)'}`;
 
   if(st.state==='DURING'){
     const leftMin = Math.max(0, Math.ceil((+st.e - +now)/60000));
@@ -312,6 +348,8 @@ function render(){
 
 /* Init */
 render();
+syncClock().then(render);
+setInterval(syncClock, 5 * 60 * 1000);
 setInterval(render, 1000);  // update text/labels
 requestAnimationFrame(raf); // glide the bar
 </script>
